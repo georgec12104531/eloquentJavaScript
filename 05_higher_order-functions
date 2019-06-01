@@ -1,0 +1,11 @@
+function flatten(arr) {
+  return arr.reduce((arr, final) => {
+    return arr.concat(final)
+  },[])
+}
+
+function loop(start, test, update, print) {
+  for(let num = start; test(num); num = update(num)) {
+    print(num);
+  }
+}
