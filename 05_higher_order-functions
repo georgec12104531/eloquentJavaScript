@@ -11,8 +11,14 @@ function loop(start, test, update, print) {
 }
 
 function every(array, test) {
-    for(let i = 0; i < array.length; i++) {
+  for(let i = 0; i < array.length; i++) {
     if (!test(array[i])) return false; 
   }
+  return true;
+}
+
+
+function every(arr, test) {
+  if (arr.some(el => !test(el))) return false;
   return true;
 }
