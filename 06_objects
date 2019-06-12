@@ -41,3 +41,35 @@ let vecOne = new Vec(1, 2);
 vecOne.minus(new Vec(1, 2));
 console.log(vecOne)
 // console.log(vecOne);
+
+class Group {
+  constructor() {
+    this.container = [];
+  }
+
+  has(value) {};
+
+  add(value) {};
+
+  delete() {};
+
+  static from(arr) {
+    let groupOne = new Group();
+    arr.forEach(el => groupOne.container.push(el));
+    return groupOne;
+  };
+
+}
+
+let group = Group.from([10, 20]);
+console.log(group)
+// console.log(group.has(10));
+// → true
+// console.log(group.has(30));
+// → false
+// group.add(10);
+// group.delete(10);
+// console.log(group.has(10));
+// → false
+
+// let newGroup = new Group;
