@@ -1,57 +1,27 @@
-class Temperature {
-  constructor(celsius) {
-    this.celsius = celsius;
-  } 
-  // getter
-  get fahrenheit() {
-    return (this.celsius * 1.8) + 32;
-  }
-
-  // setter
-  set fahrenheit(value) {
-    this.celsius = (value - 32) * 1.8;
-  }
-
-  // Stored in the constructor. You're able to create new Temperatures from this method using a F value.
-  static fromFahrenheit(value) {
-   return new Temperature((value - 32) + 1.8)
-  }
-
-
-class Vec {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-  }
-
-  plus(vec2) {
-    this.x += Math.floor(vec2.x);
-    this.y += Math.floor(vec2.y);
-  }
-
-  minus(vec2) {
-    console.log('vec2', vec2)
-    this.x -= Math.floor(vec2.x);
-    this.y -= Math.floor(vec2.y);
-  }
-}
-
-let vecOne = new Vec(1, 2);
-// vecOne.plus(new Vec(2, 3))
-vecOne.minus(new Vec(1, 2));
-console.log(vecOne)
-// console.log(vecOne);
-
 class Group {
   constructor() {
     this.container = [];
   }
 
-  has(value) {};
+  has(value) {
+    for (let i = 0; i < this.container.length; i++) {
+      if (this.container[i] === value) return true;
+    }
+    return false
+  };
 
-  add(value) {};
+  add(value) {
+    this.container.push(value);
+  };
 
-  delete() {};
+  delete(value) {
+    for (let i = 0; i < this.container.length; i++) {
+      if (this.container[i] === value) {
+        this.container.splice(i, 1);
+      };
+    }
+    console.log(this.container);
+  };
 
   static from(arr) {
     let groupOne = new Group();
@@ -63,7 +33,8 @@ class Group {
 
 let group = Group.from([10, 20]);
 console.log(group)
-// console.log(group.has(10));
+console.log(group.has(290));
+console.log(group.delete(10));
 // → true
 // console.log(group.has(30));
 // → false
